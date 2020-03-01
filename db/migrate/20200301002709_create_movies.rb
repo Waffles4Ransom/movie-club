@@ -6,6 +6,7 @@ class CreateMovies < ActiveRecord::Migration[6.0]
       t.integer :release_year
       t.string :genre
       t.date :date_attended
+      t.time :showtime
       t.string :theater
       t.string :poster_image
 

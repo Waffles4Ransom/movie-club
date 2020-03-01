@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_003640) do
+ActiveRecord::Schema.define(version: 2020_03_01_070659) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -28,10 +28,22 @@ ActiveRecord::Schema.define(version: 2020_03_01_003640) do
     t.integer "release_year"
     t.string "genre"
     t.date "date_attended"
+    t.time "showtime"
     t.string "theater"
     t.string "poster_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "username"
+    t.string "member_title"
+    t.string "fav_movie"
+    t.string "profile_photo"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -46,14 +58,10 @@ ActiveRecord::Schema.define(version: 2020_03_01_003640) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
     t.string "email"
+    t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
-    t.string "member_title"
-    t.string "fav_movie"
-    t.string "profile_photo"
     t.boolean "status", default: true
     t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -62,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_003640) do
 
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "movies"
   add_foreign_key "reviews", "users"
 end
