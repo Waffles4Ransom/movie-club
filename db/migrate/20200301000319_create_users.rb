@@ -9,8 +9,8 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :member_title
       t.string :fav_movie
       t.string :profile_photo
-      t.boolean :status
-      t.boolean :admin
+      t.boolean :status, default: true
+      t.boolean :admin, default: false
 
       t.timestamps
     end
