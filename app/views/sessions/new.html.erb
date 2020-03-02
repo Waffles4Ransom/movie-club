@@ -1,5 +1,7 @@
 <h1>Member Log In</h1>
 
+<%= flash[:message] if flash[:message] %>
+
 <%= form_tag('/login') do %>
   <%= label_tag :email %>
   <%= text_field_tag :email %>
