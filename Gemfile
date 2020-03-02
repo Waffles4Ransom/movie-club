@@ -24,6 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
+gem 'omniauth-facebook', '~> 4.0'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
 
 # Reduces boot times through caching; required in config/boot.rb

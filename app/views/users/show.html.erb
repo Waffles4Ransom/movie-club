@@ -1,5 +1,7 @@
 <h1><%= @user.full_name %></h1>
 
+<%= image_tag @user.profile.profile_photo, size: "200" %>
+
 <p>username: <%= @user.profile.username %></p>
 <p>Member title: <%= @user.profile.member_title %></p>
 <p>Favorite Movie: <%= @user.profile.fav_movie %></p>
