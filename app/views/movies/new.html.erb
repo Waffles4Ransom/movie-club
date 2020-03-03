@@ -1,0 +1,35 @@
+<h1>Add a Movie</h1>
+
+<% if @movie.errors.any? %>
+  <% @movie.errors.full_messages.each  do |m| %>
+    <p><%= m %></p>
+  <% end %>
+<% end %>
+
+<%= form_with model: @movie, local: true do |f| %>
+  <%= f.label :title, 'Movie Title: ' %>
+  <%= f.text_field :title %>
+
+  <%= f.label :director, 'Director Name: ' %>
+  <%= f.text_field :director %>
+
+  <%= f.label :release_year, 'Movie Release Year:' %>
+  <%= f.text_field :release_year %>
+
+  <%= f.label :genre %>
+  <%= f.select :genre, ["Action", "Animation", "Comedy", "Drama", "Fantasy", "History", "Horror", "Mystery", "Romance", "Sci-fi", "Thriller", "Western"] %>
+
+  <%= f.label :date_attended, 'MC attendence date:' %>
+  <%= f.date_field :date_attended %>
+
+  <%= f.label :showtime %>
+  <%= f.time_field :showtime %>
+
+  <%= f.label :theater, 'Name of theater:' %>
+  <%= f.text_field :theater %>
+
+  <%= f.label :poster_image, 'Upload movie poster image URL: ' %>
+  <%= f.text_field :poster_image %>
+
+  <%= f.submit %>
+<% end %>

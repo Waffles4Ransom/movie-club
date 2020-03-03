@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
 
   def home 
-
+    if logged_in?
+      redirect_to movies_path
+    end 
   end 
 
   def new
