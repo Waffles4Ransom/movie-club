@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :reviews
 
   resources :movies do 
-    resources :reviews, only: [:new, :create]
+    resources :reviews
   end 
 
   resources :users, except: [:new] do 

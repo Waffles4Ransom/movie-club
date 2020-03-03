@@ -15,6 +15,21 @@ class ProfilesController < ApplicationController
     end 
   end 
 
+  def edit 
+    @profile = @user.profile
+  end 
+
+  def update
+    @profile = @user.profile
+    @profile.update(profile_params)
+    if @profile.save 
+      redirect_to user_path(@user)
+    else
+      flash[:fail] = "Update failed"
+      render :edit
+    end 
+  end 
+
   private 
 
   def set_user 

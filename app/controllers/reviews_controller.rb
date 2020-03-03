@@ -8,7 +8,6 @@ class ReviewsController < ApplicationController
 
   def create 
     @review = @movie.reviews.build(review_params)
-    binding.pry
     if @review.save 
       redirect_to movie_url(@movie)
     else

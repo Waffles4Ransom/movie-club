@@ -1,17 +1,21 @@
 <h1><%= @movie.title %></h1>
-<%= image_tag @movie.poster_image, size: "300" %>
+<%= link_to 'Edit Movie Info', edit_movie_path %>
+<br/>
+<%= image_tag @movie.poster_image, height: "450", width: "350" %>
 <ul>
   <li>Directed by: <%= @movie.director %></li>
   <li><%= @movie.release_year %></li>
   <li>Genre: <%= @movie.genre %></li>
   <li>Movie Club viewing: <%= @movie.date_attended.strftime("%A %B %e %Y") %></li>
   <li>at <%= @movie.theater %></li>
-  <li><%= @movie.movie_club_rating %>
+  <li><%= @movie.movie_club_rating if @movie.reviews.any? %>
 </ul>
 
 <h4>Members who attended</h4>
   <% @movie.users.each do |m| %>
-    <%= image_tag m.profile.profile_photo, size: "100" %>
+    <%= link_to user_path(m) do %>
+      <%= image_tag m.profile.profile_photo, size: "100" %>
+    <% end %>
   <% end %>
   <br/><br/>
 
@@ -23,5 +27,6 @@
   <% @movie.reviews.each do |r| %>
     <%= image_tag r.user.profile.profile_photo, size: "50" %>
     <%= r.user.profile.username %> says "<%= r.content %>"
-    <%= "#{r.rating} stars" %>
+    <%= r.rating %><%= (r.rating) == 1 ? 'Star' : 'Stars' %>
+    <%= link_to 'Edit', edit_movie_review_path(r) if current_user == r.user %>
   <% end %>

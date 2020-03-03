@@ -1,0 +1,3 @@
+<h2>Edit your profile <%= @profile.user.first_name %></h2>
+<%= flash[:fail] if flash[:fail] %>
+<%= render partial: 'profile_form', locals: {user: @profile, url:user_profile_path(@user)} %>

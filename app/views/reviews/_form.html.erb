@@ -1,0 +1,11 @@
+<%= form_with(model: [@movie, ???], local: true) do |f| %>
+  
+  <%= f.label :rating, 'Star Rating:' %>
+  <%= f.collection_radio_buttons(:rating, { 'One Star': 1, 'Two Stars': 2, 'Three Stars': 3, 'Four Stars': 4, 'Five Stars': 5 }, :last, :first) %>
+  
+  <%= f.label :content, 'Thoughts? Feelings? Leave it here:' %>
+  <%= f.text_area :content %>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit 'Post Review' %>
+<% end %>

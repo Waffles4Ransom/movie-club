@@ -1,14 +1,4 @@
-<h1> Welcome <%= @user.first_name%></h1>
-
-<h4>Please complete your profile before continuing.</h4>
-
-<% if @profile.errors.any? %>
-  <% @profile.errors.full_messages.each do |msg| %>
-    <p><%= msg %></p>
-  <% end %>
-<% end %>
-
-<%= form_with model: @profile, url: user_profile_path(@user), local: true do |f| %>
+<%= form_with model: user, url: url, local: true do |f| %>
   
     <%= f.label :username, "Choose your username:" %>
     <%= f.text_field :username %>

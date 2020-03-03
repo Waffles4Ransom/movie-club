@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
     @movies = Movie.all
@@ -13,16 +14,35 @@ class MoviesController < ApplicationController
     if @movie.save 
       redirect_to movies_url
     else
-      flash[:fail] = "Submission failed, cannot leave fields blank"
       render :new
     end 
   end 
 
   def show
-    @movie = Movie.find(params[:id])
+  end 
+
+  def edit 
+  end 
+
+  def update
+    @movie.update(movie_params)
+    if @movie.save
+      redirect_to movie_path(@movie)
+    else 
+      render :edit
+    end 
+  end 
+
+  def destroy 
+    @movie.destroy
+    redirect_to movies_path
   end 
 
   private 
+
+  def set_movie
+    @movie = Movie.find(params[:id])
+  end 
 
   def movie_params
     params.require(:movie).permit(:title, :director, :release_year, :genre, :date_attended, :showtime, :theater, :poster_image)

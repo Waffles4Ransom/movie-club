@@ -32,7 +32,6 @@ class SessionsController < ApplicationController
       user.last_name = auth["info"]["name"].split(' ').last
       user.password = SecureRandom.hex(12)
     end 
-    binding.pry
     if @user.save
       log_in(@user)
       if @user.profile.present? 
