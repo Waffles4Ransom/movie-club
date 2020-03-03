@@ -1,3 +1,5 @@
 <h3>Edit your review </h3>
 
-<%= render 'form' %>
+<%= render partial: 'review_form', locals: {user: @review, url:movie_review_path(@movie)} %>
+
+<p><%= link_to 'Delete review', movie_review_path(@movie.id, @review), method: "delete" %></p>

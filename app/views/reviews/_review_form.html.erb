@@ -1,4 +1,4 @@
-<%= form_with(model: [@movie, ???], local: true) do |f| %>
+<%= form_with model: user , url: url, local: true do |f| %>
   
   <%= f.label :rating, 'Star Rating:' %>
   <%= f.collection_radio_buttons(:rating, { 'One Star': 1, 'Two Stars': 2, 'Three Stars': 3, 'Four Stars': 4, 'Five Stars': 5 }, :last, :first) %>
@@ -7,5 +7,5 @@
   <%= f.text_area :content %>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit 'Post Review' %>
+  <%= f.submit %>
 <% end %>

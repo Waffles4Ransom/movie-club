@@ -8,7 +8,9 @@
   <li>Genre: <%= @movie.genre %></li>
   <li>Movie Club viewing: <%= @movie.date_attended.strftime("%A %B %e %Y") %></li>
   <li>at <%= @movie.theater %></li>
-  <li><%= @movie.movie_club_rating if @movie.reviews.any? %>
+  <% if @movie.reviews.any? %>
+    <li><%= @movie.movie_club_rating %></li>
+  <% end %>
 </ul>
 
 <h4>Members who attended</h4>
@@ -28,5 +30,5 @@
     <%= image_tag r.user.profile.profile_photo, size: "50" %>
     <%= r.user.profile.username %> says "<%= r.content %>"
     <%= r.rating %><%= (r.rating) == 1 ? 'Star' : 'Stars' %>
-    <%= link_to 'Edit', edit_movie_review_path(r) if current_user == r.user %>
+    <%= link_to 'Edit', edit_movie_review_path(@movie.id, r) if current_user == r.user %>
   <% end %>
