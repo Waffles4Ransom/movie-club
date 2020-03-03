@@ -1,0 +1,27 @@
+<h1><%= @movie.title %></h1>
+<%= image_tag @movie.poster_image, size: "300" %>
+<ul>
+  <li>Directed by: <%= @movie.director %></li>
+  <li><%= @movie.release_year %></li>
+  <li>Genre: <%= @movie.genre %></li>
+  <li>Movie Club viewing: <%= @movie.date_attended.strftime("%A %B %e %Y") %></li>
+  <li>at <%= @movie.theater %></li>
+  <li><%= @movie.movie_club_rating %>
+</ul>
+
+<h4>Members who attended</h4>
+  <% @movie.users.each do |m| %>
+    <%= image_tag m.profile.profile_photo, size: "100" %>
+  <% end %>
+  <br/><br/>
+
+<% if !current_user.reviewed_it(@movie) %>
+  <%= link_to 'Add your review', new_movie_review_path(@movie.id) %>
+<% end %>
+
+<h4>Reviews</h4>
+  <% @movie.reviews.each do |r| %>
+    <%= image_tag r.user.profile.profile_photo, size: "50" %>
+    <%= r.user.profile.username %> says "<%= r.content %>"
+    <%= "#{r.rating} stars" %>
+  <% end %>

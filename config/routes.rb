@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   resources :comments
   resources :reviews
-  resources :movies
+
+  resources :movies do 
+    resources :reviews, only: [:new, :create]
+  end 
+
   resources :users, except: [:new] do 
     resource :profile
   end 

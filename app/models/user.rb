@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def full_name 
     "#{self.first_name} #{self.last_name}"
   end 
+
+  def reviewed_it(movie)
+    self.movies.ids.include?(movie.id)
+  end 
 end
