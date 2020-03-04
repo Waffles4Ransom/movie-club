@@ -1,0 +1,15 @@
+<div class= "home">
+  <h1>Welcome to DAM Movie Club</h1>
+  <h2>We like to movie.</h2>
+
+  <h4>Upcoming Movie Date</h4>
+  <% if @next_movie %>
+    <%= @next_movie.title %>
+  <% else %>
+    <h4>Nothing on the schedule yet...</h4>
+    <p><%= image_tag 'https://i.imgur.com/bAvqlZC.jpg', :class => "homeimage"%></p>
+  <% end %>
+
+  <%= link_to 'See the movies', movies_path %> | 
+  <%= link_to 'See the members',  users_path %>
+</div>

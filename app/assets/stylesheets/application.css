@@ -17,3 +17,15 @@
  body {
    font-family: "Lucida Console", Monaco, monospace;
  }
+
+ .home {
+  text-align: center;
+ }
+
+ .homeimage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-bottom: 20px;
+ }
