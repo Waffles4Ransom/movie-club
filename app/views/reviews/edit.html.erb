@@ -1,5 +1,19 @@
-<h3>Edit your review </h3>
+<h3>Edit your review for <%= @movie.title %></h3>
 
-<%= render partial: 'review_form', locals: {user: @review, url:movie_review_path(@movie)} %>
+<%= form_with model: @review, url: movie_review_path(@movie), local: true do |f| %>
+  
+  <%= f.label :rating, 'Star Rating:' %>
+  <%= f.collection_radio_buttons(:rating, { 'One Star': 1, 'Two Stars': 2, 'Three Stars': 3, 'Four Stars': 4, 'Five Stars': 5 }, :last, :first) %>
+  
+  <%= f.label :content, 'Thoughts? Feelings? Leave it here:' %>
+  <%= f.text_area :content %>
 
-<p><%= link_to 'Delete review', movie_review_path(@movie.id, @review), method: "delete" %></p>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit %>
+  
+<% end %>
+
+<p><%= link_to 'Delete review', movie_review_path(@movie.id, @review.id), method: "delete" %></p>
+
+
+

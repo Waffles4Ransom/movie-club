@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
 
-  resources :comments
-  resources :reviews
+  
+  resources :reviews do 
+    resources :comments 
+  end 
 
   resources :movies do 
     resources :reviews

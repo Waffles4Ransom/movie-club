@@ -8,19 +8,4 @@
   <% end %>
 <% end %>
 
-<%= form_with model: @profile, url: user_profile_path(@user), local: true do |f| %>
-  
-    <%= f.label :username, "Choose your username:" %>
-    <%= f.text_field :username %>
-
-    <%= f.label :member_title, "Choose your position title within Movie Club:" %>
-    <%= f.text_field :member_title %>
-
-    <%= f.label :fav_movie, "Title of your Favorite Movie:" %>
-    <%= f.text_field :fav_movie %>
-
-    <%= f.label :profile_photo, "Upload a profile picture URL:" %>
-    <%= f.text_field :profile_photo%>
-
-    <%= f.submit %>
-<% end %>
+<%= render partial: 'profile_form', locals: {user: @profile, url:user_profile_path(@user)} %>

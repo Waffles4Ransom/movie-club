@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_user
 
   def new 
-    @profile = @user.build_profile
+      @profile = @user.build_profile 
   end 
 
   def create 

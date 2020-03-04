@@ -17,4 +17,5 @@ class User < ApplicationRecord
   def reviewed_it(movie)
     self.movies.ids.include?(movie.id)
   end 
+  
 end

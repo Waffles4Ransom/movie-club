@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate
   before_action :set_movie
+  before_action :set_review, only: [:edit, :update, :destroy]
 
   def new
     @review = @movie.reviews.build
@@ -16,11 +17,9 @@ class ReviewsController < ApplicationController
   end 
 
   def edit 
-    @review = Review.find(params[:id])
   end 
 
   def update
-    @review = Review.find(params[:id])
     @review.update(review_params)
     if @review.save 
       redirect_to movie_path(@movie)
@@ -30,7 +29,6 @@ class ReviewsController < ApplicationController
   end 
 
   def destroy
-    @review = Review.find(params[:id])
     @review.destroy
     redirect_to movie_path(@movie)
   end 
@@ -39,6 +37,10 @@ class ReviewsController < ApplicationController
 
   def set_movie
     @movie = Movie.find(params[:movie_id])
+  end 
+
+  def set_review
+    @review = Review.find(params[:id])
   end 
 
   def review_params

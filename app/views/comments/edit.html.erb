@@ -1,0 +1,12 @@
+<h3>Edit your comment: </h3>
+<%= form_with model: @comment, url: review_comment_path(@review), local: true do |f| %>
+  
+  <%= f.label :content, 'Comment:' %>
+  <%= f.text_area :content %>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit %>
+  
+<% end %>
+
+<p><%= link_to 'Delete comment', review_comment_path(@review.id, @comment), method: "delete" %></p>
