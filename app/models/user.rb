@@ -17,5 +17,9 @@ class User < ApplicationRecord
   def reviewed_it(movie)
     self.movies.ids.include?(movie.id)
   end 
+
+  def member_status
+    self.status ? "active" : "inactive"
+  end 
   
 end

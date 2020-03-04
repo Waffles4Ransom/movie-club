@@ -1,7 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :authenticate
-  before_action :set_movie
+  before_action :set_movie, except: [:index]
   before_action :set_review, only: [:edit, :update, :destroy]
+
+  def index
+    @user = User.find(params[:user_id])
+    @reviews = @user.reviews
+  end 
 
   def new
     @review = @movie.reviews.build

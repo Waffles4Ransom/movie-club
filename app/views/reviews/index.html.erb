@@ -1,0 +1,13 @@
+<% if @user == current_user %>
+  <h1> My Movie Reviews </h1>
+<% else %>
+  <h1><%= @user.full_name %> Movie Reviews</h1>
+<% end %>
+
+<% @reviews.each do |review| %>
+  <h4><%= review.movie.title %></h4>
+  <p>
+    <%= review.content %>
+    <%= link_to 'Edit Review', edit_movie_review_path(review.movie.id, review.id) if current_user == review.user %>
+  </p>
+<% end %>

@@ -31,12 +31,14 @@
     <%= r.user.profile.username %> says "<%= r.content %>"
     <%= r.rating %><%= (r.rating) == 1 ? 'Star' : ' Stars' %>
     <%= link_to 'Edit', edit_movie_review_path(@movie.id, r) if current_user == r.user %>
-    <%= link_to 'Comment', new_review_comment_path(r) %>
-    <p>Comments:</p>
-    <% r.comments.each do |c| %>
-      <p>
-        <%= c.content %> - <%= c.user.profile.username %>
-        <%= link_to 'Edit', edit_review_comment_path(r.id, c) if current_user == c.user %>
-      </p>
-    <% end %>
+    <%= link_to 'Add Comment', new_review_comment_path(r) %>
+      <% if r.comments.present? %>
+        <p>Comments:</p>
+      <% end %>
+        <% r.comments.each do |c| %>
+          <p>
+            <%= c.content %> - <%= c.user.profile.username %>
+            <%= link_to 'Edit', edit_review_comment_path(r.id, c) if current_user == c.user %>
+          </p>
+        <% end %>
   <% end %>

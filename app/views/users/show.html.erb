@@ -5,14 +5,18 @@
 <p>username: <%= @user.profile.username %></p>
 <p>Member title: <%= @user.profile.member_title %></p>
 <p>Favorite Movie: <%= @user.profile.fav_movie %></p>
+<p>Current Member Status: <%= @user.member_status %></p>
 
-<h4>Movie Club Attendence Record</h4>
+<h4>Movie Club Attendence Record: <%= @user.movies.count %></h4>
 <% @user.movies.each do |m| %>
-  <%= m.title %>
+  <%= link_to movie_path(m) do %>
+    <%= image_tag m.poster_image, height: "200", width: "155" %>
+  <% end %>
 <% end %>
 
 <br/><br/>
 
 <% if current_user == @user %>
-  <%= link_to 'Edit Profile Info', edit_user_profile_path(@user.id) %>
+  <%= link_to 'Edit Profile Info', edit_user_profile_path(@user.id) %> |
+  <%= link_to 'See all of my reviews', user_reviews_path(@user.id) %>
 <% end %>
