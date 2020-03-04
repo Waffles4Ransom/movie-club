@@ -1,5 +1,7 @@
 <h1>Movie Club movie list</h1>
 
+<%= @next_movie.title if @next_movie %>
+
 <%= link_to 'Add a movie', new_movie_path %>
 <p>
 <ul></ul>

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate, only: [:index, :show]
   
   def index
-    @users = User.all
+    @users = User.alpha_order
   end 
 
   def new 

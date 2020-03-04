@@ -10,6 +10,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }
   validates :email, uniqueness: true
 
+  scope :alpha_order, ->{order(:first_name)}
+
   def full_name 
     "#{self.first_name} #{self.last_name}"
   end 
@@ -19,7 +21,11 @@ class User < ApplicationRecord
   end 
 
   def member_status
-    self.status ? "active" : "inactive"
+    self.movies.chrono_order.last.date_attended < Movie.chrono_order.third_to_last.date_attended ? "INACTIVE" : "ACTIVE"
+  end 
+
+  def member_since
+    self.movies.sort_by(&:date_attended).first.date_attended.strftime("%Y")
   end 
   
 end
