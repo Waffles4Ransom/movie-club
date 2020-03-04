@@ -6,8 +6,6 @@
 
 <% @reviews.each do |review| %>
   <h4><%= review.movie.title %></h4>
-  <p>
     <%= review.content %>
     <%= link_to 'Edit Review', edit_movie_review_path(review.movie.id, review.id) if current_user == review.user %>
-  </p>
 <% end %>

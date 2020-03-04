@@ -14,9 +14,16 @@
   <% end %>
 <% end %>
 
+<% if @user.movies.count == 0 %>
+  Choose your first movie to review:
+  <% @movies.each do |m| %>
+    <%= link_to m.title, new_movie_review_path(m) %>
+  <% end %>
+ <% end %> 
+
 <br/><br/>
 
 <% if current_user == @user %>
   <%= link_to 'Edit Profile Info', edit_user_profile_path(@user.id) %> |
-  <%= link_to 'See all of my reviews', user_reviews_path(@user.id) %>
+  <%= link_to 'See all of my reviews', user_reviews_path(@user.id) if @user.movies.count >= 1 %>
 <% end %>

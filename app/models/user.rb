@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :comments 
   has_many :commented_reviews, through: :comments, source: :review
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :first_name, :last_name, presence: true
+  validates :password, length: { minimum: 6 }
   validates :email, uniqueness: true
 
   def full_name 

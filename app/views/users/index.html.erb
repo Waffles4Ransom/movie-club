@@ -1,0 +1,13 @@
+<h1>Movie Club Members</h1>
+
+<% @users.each do |u| %>
+  <%= link_to user_path(u) do %>
+    <%= image_tag u.profile.profile_photo, size: "200" %>
+  <% end %>
+    <br/>
+    <p><%= u.full_name %></p>
+    <p>Username: <%= u.profile.username %></p>
+    <p>Review count: <%= u.movies.count %></p>
+    <p>Current Status: <%= u.member_status %>
+    <br/>
+<% end %>

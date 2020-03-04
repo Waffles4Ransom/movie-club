@@ -14,6 +14,7 @@
 <% end %>
 
 <p><%= link_to 'Delete review', movie_review_path(@movie.id, @review.id), method: "delete" %></p>
+<%= link_to 'Back', movie_path(@movie) %>
 
 
 

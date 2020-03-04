@@ -27,11 +27,13 @@
 
 <h4>Reviews</h4>
   <% @movie.reviews.each do |r| %>
+    <p>
     <%= image_tag r.user.profile.profile_photo, size: "50" %>
     <%= r.user.profile.username %> says "<%= r.content %>"
     <%= r.rating %><%= (r.rating) == 1 ? 'Star' : ' Stars' %>
     <%= link_to 'Edit', edit_movie_review_path(@movie.id, r) if current_user == r.user %>
     <%= link_to 'Add Comment', new_review_comment_path(r) %>
+    </p>
       <% if r.comments.present? %>
         <p>Comments:</p>
       <% end %>
