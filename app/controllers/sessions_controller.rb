@@ -1,13 +1,10 @@
 class SessionsController < ApplicationController
+  before_action :already_in, only: [:home, :new]
 
   def home 
-    if logged_in?
-      redirect_to movies_path
-    end 
   end 
 
   def new
-    redirect_to movies_url if logged_in?
   end
 
   def create 
@@ -46,6 +43,10 @@ class SessionsController < ApplicationController
 
 
   private
+
+  def already_in
+    redirect_to movies_url if logged_in?
+  end 
 
   def auth
     request.env['omniauth.auth']
