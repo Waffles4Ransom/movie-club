@@ -1,4 +1,5 @@
 <h3>Edit your review for <%= @movie.title %></h3>
+<%= render partial: 'layouts/errors', locals: {object: @review } %>
 
 <%= form_with model: @review, url: movie_review_path(@movie), local: true do |f| %>
   

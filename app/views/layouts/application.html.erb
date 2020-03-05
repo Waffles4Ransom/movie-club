@@ -13,6 +13,9 @@
     <header>
       <%= navbar %>
     </header>
+
+    <%= flash[:nope] if flash[:nope] %>
+
     <%= yield %>
 
 

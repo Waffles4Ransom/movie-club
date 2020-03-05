@@ -1,5 +1,5 @@
 <h2>Edit <%= @movie.title %></h2>
-
+<%= render partial: 'layouts/errors', locals: {object: @movie } %>
 <%= render 'movie_form' %>
 
 <p><%= link_to "Delete Movie", movie_path(@movie), method: "delete" %></p>

@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :commented_reviews, through: :comments, source: :review
 
   validates :first_name, :last_name, presence: true
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, presence: true
 
   scope :alpha_order, ->{order(:first_name)}
 

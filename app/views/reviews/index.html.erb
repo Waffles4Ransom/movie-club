@@ -1,7 +1,7 @@
 <% if @user == current_user %>
   <h1> My Movie Reviews </h1>
 <% else %>
-  <h1><%= @user.full_name %> Movie Reviews</h1>
+  <h1><%= @user.full_name %>'s Movie Reviews</h1>
 <% end %>
 
 <% @reviews.each do |review| %>

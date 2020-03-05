@@ -1,10 +1,5 @@
 <h1>Join Movie Club</h1>
-
-<% if @user.errors.any? %>
-  <% @user.errors.full_messages.each do |msg| %>
-    <p><%= msg %></p>
-  <% end %>
-<% end %>
+<%= render partial: 'layouts/errors', locals: {object: @user } %>
 
 <%= form_with model: @user, url: 'signup', local: true do |f| %>
     <%= f.label :first_name %>

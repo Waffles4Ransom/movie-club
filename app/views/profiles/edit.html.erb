@@ -1,5 +1,5 @@
 <h2>Edit your profile <%= @profile.user.first_name %></h2>
-<%= flash[:fail] if flash[:fail] %>
+<%= render partial: 'layouts/errors', locals: {object: @profile } %>
 <%= render partial: 'profile_form', locals: {user: @profile, url:user_profile_path(@user)} %>
 
 <%= link_to 'Back', user_path(@user) %>

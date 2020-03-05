@@ -4,8 +4,13 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
 
   def index
-    @user = User.find(params[:user_id])
-    @reviews = @user.reviews
+    if params[:user_id].present?
+      @user = User.find(params[:user_id])
+      @reviews = @user.reviews
+    else 
+      flash[:nope] = "You looking for reviews?? Choose a movie first please."
+      redirect_to movies_path
+    end 
   end 
 
   def new
@@ -14,6 +19,7 @@ class ReviewsController < ApplicationController
 
   def create 
     @review = @movie.reviews.build(review_params)
+    @review.user = current_user
     if @review.save 
       redirect_to movie_url(@movie)
     else

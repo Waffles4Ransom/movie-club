@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 
   def create 
     @comment = @review.comments.build(comment_params)
+    @comment.user = current_user
     if @comment.save
       redirect_to movie_url(@movie)
     else 

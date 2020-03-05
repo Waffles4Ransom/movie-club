@@ -3,7 +3,12 @@ class ProfilesController < ApplicationController
   before_action :set_user
 
   def new 
-      @profile = @user.build_profile 
+    if @user.profile.blank?
+      @profile = @user.build_profile
+    else
+      flash[:nope] = "Two profiles? AS IF!"
+      redirect_to user_path(@user)
+    end
   end 
 
   def create 
@@ -25,7 +30,6 @@ class ProfilesController < ApplicationController
     if @profile.save 
       redirect_to user_path(@user)
     else
-      flash[:fail] = "Update failed"
       render :edit
     end 
   end 
@@ -33,9 +37,7 @@ class ProfilesController < ApplicationController
   private 
 
   def set_user 
-    unless @user = User.find_by_id(params[:user_id])
-      redirect_to users_path 
-    end 
+     @user = User.find(params[:user_id])
   end 
 
   def profile_params

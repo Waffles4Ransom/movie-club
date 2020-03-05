@@ -1,4 +1,5 @@
 <h3>Leave your review for <%= @movie.title %></h3>
+<%= render partial: 'layouts/errors', locals: {object: @review } %>
 
 <%= form_with(model: [@movie, Review.new], local: true) do |f| %>
   
@@ -8,7 +9,6 @@
   <%= f.label :content, 'Thoughts? Feelings? Leave it here:' %>
   <%= f.text_area :content %>
 
-  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit 'Post Review' %>
   
 <% end %>

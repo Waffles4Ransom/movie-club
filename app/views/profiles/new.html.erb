@@ -2,10 +2,5 @@
 
 <h4>Please complete your profile before continuing.</h4>
 
-<% if @profile.errors.any? %>
-  <% @profile.errors.full_messages.each do |msg| %>
-    <p><%= msg %></p>
-  <% end %>
-<% end %>
-
+<%= render partial: 'layouts/errors', locals: {object: @profile } %>
 <%= render partial: 'profile_form', locals: {user: @profile, url:user_profile_path(@user)} %>
