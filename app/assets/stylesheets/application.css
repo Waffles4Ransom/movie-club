@@ -15,7 +15,7 @@
  */
 
  body {
-   font-family: "Lucida Console", Monaco, monospace;
+  font-family: 'Montserrat', sans-serif;
  }
 
  .home {
@@ -26,6 +26,149 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 40%;
   margin-bottom: 20px;
  }
+
+ .content {
+  margin-left: 35px;
+}
+
+ .right {
+   float: right;
+ }
+
+ .flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ div.gallery {
+  margin: 5px;
+  border: 3px solid #ccc;
+  float: left;
+  width: 180px;
+  flex-wrap: wrap;
+}
+
+div.gallery:hover {
+  border: 3px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.avatar {
+  border-radius: 50px;
+  vertical-align: middle;
+}
+
+.img-container {
+  display: inline;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  
+  padding: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input[type=text], select {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+input[type=password], [type=email], select {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+input[type=submit] {
+  width: 40%;
+  background-color: rgb(48, 57, 99);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+ 
+textarea {
+  width: 40%;
+  height: 100px;
+  padding: 12px 20px;
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 14px;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.comment {
+  margin-left: 70px;
+}
+
+.button {
+  background-color: rgb(48, 57, 99);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 4px;
+}
+
+.button1 {
+  padding: 14px;
+  font-size: 16px;
+}
+
+.button2 {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.alert {
+  color: firebrick;
+  background-color: #e6bbbb;;
+  margin: 10px;
+  width: 20%;
+}

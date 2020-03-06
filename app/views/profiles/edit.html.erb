@@ -2,4 +2,4 @@
 <%= render partial: 'layouts/errors', locals: {object: @profile } %>
 <%= render partial: 'profile_form', locals: {user: @profile, url:user_profile_path(@user)} %>
 
-<%= link_to 'Back', user_path(@user) %>
+<%= link_to 'Back', user_path(@user), class: "button button2" %>

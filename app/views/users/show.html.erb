@@ -1,30 +1,38 @@
 <h1><%= @user.full_name %></h1>
-
-<%= image_tag @user.profile.profile_photo, size: "200" %>
-
-<p>username: <%= @user.profile.username %></p>
-<p>Member title: <%= @user.profile.member_title %></p>
-<p>Favorite Movie: <%= @user.profile.fav_movie %></p>
-<p>Member Since: <%= @user.member_since %></p>
-<p>Current Member Status: <%= @user.member_status %></p>
+  <div class="row">
+    <div class="column">
+      <%= image_tag @user.profile.profile_photo, size: "250" %>
+    </div>
+    <div class="column">
+        <p>Username: <%= @user.profile.username %></p>
+        <p>Member title: <%= @user.profile.member_title %></p>
+        <p>Favorite Movie: <%= @user.profile.fav_movie %></p>
+        <% unless @user.movies.count == 0 %>
+          <p>Member Status: <%= @user.member_status %></p>
+          <p>Member Since: <%= @user.member_since %></p>
+        <% end %>
+    </div>
+  </div>
 
 <h4>Movie Club Attendence Record: <%= @user.movies.count %></h4>
 <% @user.movies.each do |m| %>
-  <%= link_to movie_path(m) do %>
-    <%= image_tag m.poster_image, height: "200", width: "155" %>
-  <% end %>
+  <div class="img-container">
+    <%= link_to movie_path(m) do %>
+      <%= image_tag m.poster_image, height: "200", width: "155" %>
+    <% end %>
+  </div>
 <% end %>
 
-<% if @user.movies.count == 0 %>
-  Choose your first movie to review:
-  <% @movies.each do |m| %>
-    <%= link_to m.title, new_movie_review_path(m) %>
-  <% end %>
- <% end %> 
-
-<br/><br/>
-
 <% if current_user == @user %>
-  <%= link_to 'Edit Profile Info', edit_user_profile_path(@user.id) %> |
-  <%= link_to 'See all of my reviews', user_reviews_path(@user.id) if @user.movies.count >= 1 %>
+  <% if @user.movies.count == 0 %>
+    <p>Choose your first movie to review:</p>
+    <% @movies.each do |m| %>
+      <%= link_to m.title, new_movie_review_path(m) %>
+    <% end %>
+   <% end %> 
+
+  <br/><br/>
+
+    <%= link_to 'Edit profile info', edit_user_profile_path(@user.id), class: 'button button1'  %> |
+    <%= link_to 'See all of my reviews', user_reviews_path(@user.id),class: 'button button1'  if @user.movies.count >= 1 %>
 <% end %>

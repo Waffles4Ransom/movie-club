@@ -5,7 +5,7 @@
 <% end %>
 
 <% @reviews.each do |review| %>
-  <h4><%= review.movie.title %></h4>
-    <%= review.content %>
-    <%= link_to 'Edit Review', edit_movie_review_path(review.movie.id, review.id) if current_user == review.user %>
+  <h2><%= review.movie.title %></h2>
+  <%= review.content %>
+  <p><%= link_to 'Edit Review', edit_movie_review_path(review.movie.id, review.id), class: 'button button2' if current_user == review.user %></p>
 <% end %>

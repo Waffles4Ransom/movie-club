@@ -7,25 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 anna = User.create(first_name: "Anna", last_name: "Millholland", email: "amillholland@denverartmuseum.org", password: "annapassword")
-Profile.create(user: anna, username: "animalholland", position_title: "CEO of Looks", fav_movie: "Notting Hill", profile_photo: "https://i.imgur.com/9e5IlgD.png")
+Profile.create(user_id: anna.id, username: "animalholland", member_title: "CEO of Looks", fav_movie: "Notting Hill", profile_photo: "https://i.imgur.com/9e5IlgD.png")
 
 christine = User.create(first_name: "Christine", last_name: "Carey", email: "ccarey@denverartmuseum.org", password: "christinepassword")
-Profile.create(user: christine, username: "cvcarey", position_title: "VP of Taste", fav_movie: "Only Lovers Left Alive", profile_photo: "https://i.imgur.com/6sBu4kk.png")
+Profile.create(user_id: christine.id, username: "cvcarey", member_title: "VP of Taste", fav_movie: "Only Lovers Left Alive", profile_photo: "https://i.imgur.com/6sBu4kk.png")
 
 judy = User.create(first_name: "Judy", last_name: "Gehrke-Gilbert", email: "jgehrke-gilbert@denverartmuseum.org", password: "judypassword")
-Profile.create(user: judy, username: "judylee", position_title: "Candy Aficionado", fav_movie: "Beyond the Valley of the Dolls", profile_photo: "https://i.imgur.com/YS6EZqs.jpg")
+Profile.create(user_id: judy.id, username: "judylee", member_title: "Candy Aficionado", fav_movie: "Beyond the Valley of the Dolls", profile_photo: "https://i.imgur.com/YS6EZqs.jpg")
 
 aric = User.create(first_name: "Aric", last_name: "Wheeler", email: "awheeler@denverartmuseum.org", password: "aricpassword")
-Profile.create(user: aric, username: "aricwheeler", position_title: "Premier of Popcorn", fav_movie: "The Babadook", profile_photo: "https://i.imgur.com/sogzU49.png")
+Profile.create(user_id: aric.id, username: "aricwheeler", member_title: "Premier of Popcorn", fav_movie: "The Babadook", profile_photo: "https://i.imgur.com/sogzU49.png")
 
 emily = User.create(first_name: "Emily", last_name: "Barrett Rodriguez", email: "erodriguez@denverartmuseum.org", password: "emilypassword")
-Profile.create(user: emily, username: "emilylou", position_title: "Secretary of Sodas", fav_movie: "Beetlejuice", profile_photo: "https://i.imgur.com/ECUemcl.png")
+Profile.create(user_id: emily.id, username: "emilylou", member_title: "Secretary of Sodas", fav_movie: "Beetlejuice", profile_photo: "https://i.imgur.com/ECUemcl.png")
 
 oliver = User.create(first_name: "Oliver", last_name: "Clough", email: "oclough@denverartmuseum.org", password: "oliverpassword")
-Profile.create(user: oilver, username: "lastjediwasawesome", position_title: "Minister of Propaganda", fav_movie: "Cannibal Holocaust", profile_photo: "https://i.imgur.com/NY6oSMy.jpg" )
+Profile.create(user_id: oliver.id, username: "lastjediwasawesome", member_title: "Minister of Propaganda", fav_movie: "Cannibal Holocaust", profile_photo: "https://i.imgur.com/NY6oSMy.jpg" )
 
 rachelle = User.create(first_name: "Rachelle", last_name: "Hubbell", email: "rhubbell@denverartmuseum.org", password: "rachellepassword")
-Profile.create(user:rachelle, username: "roroCO", position_title: "Historian", fav_movie: "Quick Change", profile_photo: "https://i.imgur.com/z3QtDH9.png" )
+Profile.create(user_id:rachelle.id, username: "roroCO", member_title: "Historian", fav_movie: "Quick Change", profile_photo: "https://i.imgur.com/z3QtDH9.png" )
 
 movies = [
   {

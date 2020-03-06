@@ -1,6 +1,6 @@
 <h1>Member Log In</h1>
 
-<%= flash[:message] if flash[:message] %>
+<div class='alert'><%= flash[:message] if flash[:message] %></div>
 
 <%= form_tag('/login') do %>
   <%= label_tag :email %>
@@ -14,4 +14,4 @@
 
 <p> or </p>
 
-<%= link_to 'Log In with Facebook', '/auth/facebook' %>
+<%= link_to 'Log In with Facebook', '/auth/facebook', class: 'button button1' %>

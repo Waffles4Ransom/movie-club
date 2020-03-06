@@ -1,5 +1,5 @@
-<%= link_to 'DAM Movie Club', root_path %>
-<%= link_to 'Movies', movies_path %>
-<%= link_to 'Members', users_path %>
-<%= link_to 'My Profile', user_path(current_user) %>
-<%= link_to 'Log Out', '/logout', method: :delete %>
+<%= link_to 'DAM Movie Club', root_path, class: 'button button1' %>
+<%= link_to 'Movies', movies_path, class: 'button button1'%>
+<%= link_to 'Members', users_path, class: 'button button1' %>
+<div class="right"><%= link_to 'Log Out', '/logout', method: :delete, class: 'button button1' %></div>
+<div class="right"><%= link_to 'My Profile', user_path(current_user), class: 'button button1' %></div>

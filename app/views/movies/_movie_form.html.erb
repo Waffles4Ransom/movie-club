@@ -9,18 +9,18 @@
   <%= f.text_field :release_year %>
 
   <%= f.label :genre %>
-  <%= f.select :genre, ["Action", "Animation", "Comedy", "Drama", "Fantasy", "History", "Horror", "Mystery", "Romance", "Sci-fi", "Thriller", "Western"] %>
+  <%= f.select :genre, ["Action", "Animation", "Comedy", "Drama", "Fantasy", "History", "Horror", "Mystery", "Romance", "Sci-fi", "Thriller", "Western"] %><br>
 
   <%= f.label :date_attended, 'MC attendence date:' %>
   <%= f.date_field :date_attended %>
 
-  <%= f.label :showtime %>
-  <%= f.time_field :showtime %>
+  <%= f.label :showtime, 'Showtime: ' %>
+  <%= f.time_field :showtime %><br><br>
 
   <%= f.label :theater, 'Name of theater:' %>
   <%= f.text_field :theater %>
 
-  <%= f.label :poster_image, 'Upload movie poster image URL: ' %>
+  <%= f.label :poster_image, 'Movie poster image URL: ' %>
   <%= f.text_field :poster_image %>
 
   <%= f.submit %>

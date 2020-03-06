@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Mono&display=swap" rel="stylesheet">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,11 +15,11 @@
     <header>
       <%= navbar %>
     </header>
+      <div class="content">
+      <div class='alert'><%= flash[:nope] if flash[:nope] %></div>
 
-    <%= flash[:nope] if flash[:nope] %>
-
-    <%= yield %>
-
-
+      <%= yield %>
+      </div>
+   
   </body>
 </html>
