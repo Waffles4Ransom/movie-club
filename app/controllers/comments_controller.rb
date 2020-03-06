@@ -18,7 +18,8 @@ class CommentsController < ApplicationController
     end 
   end 
 
-  def edit 
+  def edit
+    authorize(@comment) 
   end 
 
   def update

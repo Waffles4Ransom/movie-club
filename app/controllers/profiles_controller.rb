@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate
+  before_action :authorized, only: [:edit]
   before_action :set_user
 
   def new 

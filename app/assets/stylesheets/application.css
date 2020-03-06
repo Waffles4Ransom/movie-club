@@ -71,6 +71,10 @@ div.desc {
   vertical-align: bottom;
 }
 
+.profypic {
+  border-radius: 15px;
+}
+
 .img-container {
   display: inline;
 }

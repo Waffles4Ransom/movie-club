@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :authenticate
+  before_action :admin, only: [:new, :edit]
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
