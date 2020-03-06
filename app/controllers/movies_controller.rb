@@ -4,7 +4,6 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.most_recent_first
-    @next_movie = Movie.upcoming_movie
   end 
 
   def new

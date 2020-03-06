@@ -1,8 +1,8 @@
-<p><%= link_to 'Edit Movie Info', edit_movie_path, class: 'button button2' %></p>
+<p><%= link_to 'Edit Movie Info', edit_movie_path, class: 'right button button2' if current_user.admin? %></p>
 <h1><%= @movie.title %> (<%= @movie.release_year %>) </h1>
   <div class="row">
     <div class="column">
-      <%= image_tag @movie.poster_image, height: "450", width: "350" %>
+      <%= image_tag @movie.poster_image, height: "450", width: "330" %>
     </div>
     <div class="column">
         <p>Directed by: <%= @movie.director %></p>
@@ -12,7 +12,7 @@
         <p>at <%= @movie.theater %></p>
         <% if @movie.reviews.any? %>
           <p>DAM Movie Club rating :</p>
-          <p><%= @movie.movie_club_rating %><%= (@movie.movie_club_rating) == 1 ? 'Star' : ' Stars' %></p>
+          <p><strong><%= @movie.movie_club_rating %><%= (@movie.movie_club_rating) == 1 ? 'Star' : ' Stars' %></p></strong>
         <% end %>
     </div >
   </div>
@@ -26,26 +26,30 @@
     <% end %>
 <% end %>
 <br/><br/>
+<% if too_soon_to_review %>
+  <% if !current_user.reviewed_it(@movie) %>
+    <%= link_to 'Add your review', new_movie_review_path(@movie.id), class: 'button button1' %>
+  <% end %>
 
-<% if !current_user.reviewed_it(@movie) %>
-  <%= link_to 'Add your review', new_movie_review_path(@movie.id), class: 'button button1' %>
+  <h2>Reviews</h2>
 <% end %>
-
-<h2>Reviews</h2>
   <% @movie.reviews.each do |r| %>
     <p>
       <%= image_tag r.user.profile.profile_photo, size: "65", class: "avatar" %>
+      <strong><%= r.rating %><%= (r.rating) == 1 ? 'Star' : ' Stars' %></strong> - 
       <%= r.user.profile.username %> says "<%= r.content %>"
-      <p><%= r.rating %><%= (r.rating) == 1 ? 'Star' : ' Stars' %>
-      <%= link_to 'Edit', edit_movie_review_path(@movie.id, r), class: 'button button2' if current_user == r.user %>
-      <%= link_to 'Add Comment', new_review_comment_path(r), class: 'button button2' %></p>
+        <p>
+          <%= link_to 'Edit', edit_movie_review_path(@movie.id, r) if current_user == r.user %>
+          <%= link_to 'Add Comment', new_review_comment_path(r) %>
+        </p>
     </p>
       <% if r.comments.present? %>
         <div class="comment">
           <% r.comments.each do |c| %>
             <p>
-              <%= c.content %> - <%= c.user.profile.username %>
-              <%= link_to 'Edit', edit_review_comment_path(r.id, c) if current_user == c.user %>
+              <%= image_tag c.user.profile.profile_photo, size: "40", class: 'avatar' %><strong><%= c.user.profile.username %></strong>
+              <p><%= c.content %>
+              <%= link_to 'Edit', edit_review_comment_path(r.id, c) if current_user == c.user %></p>
             </p>
           <% end %>
         </div>

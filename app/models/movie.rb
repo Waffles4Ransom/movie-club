@@ -15,10 +15,10 @@ class Movie < ApplicationRecord
 
   def self.upcoming_movie 
     begin
-      Movie.where(":date_attended > ?", DateTime.now).first
+      Movie.where("date_attended > ?", DateTime.now).first
     rescue ActiveRecord::StatementInvalid
       puts "Nothing on the books yet."
     end
-  end 
+  end
 
 end

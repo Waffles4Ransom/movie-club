@@ -67,7 +67,8 @@ div.desc {
 
 .avatar {
   border-radius: 50px;
-  vertical-align: middle;
+  margin-right: 5px;
+  vertical-align: bottom;
 }
 
 .img-container {
@@ -142,7 +143,7 @@ textarea {
 }
 
 .comment {
-  margin-left: 70px;
+  margin-left: 50px;
 }
 
 .button {
@@ -171,4 +172,13 @@ textarea {
   background-color: #e6bbbb;;
   margin: 10px;
   width: 20%;
+}
+
+.cat {
+  float: right;
+  margin-right: 35%;
+}
+
+.popcat {
+  border-radius: 125px;
 }

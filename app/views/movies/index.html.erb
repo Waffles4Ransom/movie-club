@@ -1,11 +1,11 @@
-<p><%= link_to 'Add a movie', new_movie_path, class: 'button button2' %></p>
+<p><%= link_to 'Add a movie', new_movie_path, class: 'right button button2' if current_user.admin? %></p>
 <h1>Movie Club movie list</h1>
 
 <div class="flex-container">
 <% @movies.each do |m| %>
   <div class="gallery">
       <%= link_to movie_path(m) do %>
-       <%= image_tag m.poster_image, width: "200", height: "400" %>
+       <%= image_tag m.poster_image %>
       <% end %>
     <div class="desc"><%= m.title %></div>
   </div>
