@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       redirect_to new_user_profile_path(current_user.id)
     else 
       @user = User.find(params[:id])
-      @movies = Movie.all
+      @movies = Movie.chrono_order
     end 
   end 
 

@@ -14,11 +14,7 @@ class Movie < ApplicationRecord
   end
 
   def self.upcoming_movie 
-    begin
       Movie.where("date_attended > ?", DateTime.now).first
-    rescue ActiveRecord::StatementInvalid
-      puts "Nothing on the books yet."
-    end
   end
 
 end
