@@ -1,6 +1,12 @@
 <p><%= link_to 'Add a movie', new_movie_path, class: 'right button button2' if current_user.admin? %></p>
 <h1>Movie Club movie list</h1>
 
+<%= form_with url: movies_path, method: :get, local: true, class: "searchbar" do |f| %>
+  <%= f.label :title, "Find a Movie:" %>
+  <%= f.text_field :title %>
+  <%= f.submit "Search" %>
+<% end %>
+
 <div class="flex-container">
 <% @movies.each do |m| %>
   <div class="gallery">

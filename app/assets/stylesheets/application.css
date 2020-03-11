@@ -186,3 +186,9 @@ textarea {
 .popcat {
   border-radius: 125px;
 }
+
+.searchbar {
+  width: 40%;
+  align-items: center;
+  display: flex;
+}

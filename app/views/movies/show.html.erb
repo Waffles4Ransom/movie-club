@@ -30,7 +30,6 @@
   <% if !current_user.reviewed_it(@movie) %>
     <%= link_to 'Add your review', new_movie_review_path(@movie.id), class: 'button button1' %>
   <% end %>
-
   <h2>Reviews</h2>
 <% end %>
   <% @movie.reviews.each do |r| %>

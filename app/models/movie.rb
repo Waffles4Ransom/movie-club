@@ -14,7 +14,7 @@ class Movie < ApplicationRecord
   end
 
   def self.upcoming_movie 
-      Movie.where("date_attended > ?", DateTime.now).first
+    Movie.where("date_attended > ?", DateTime.now).first
   end
 
 end

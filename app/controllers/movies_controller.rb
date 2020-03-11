@@ -4,7 +4,12 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
-    @movies = Movie.most_recent_first
+    if params[:title]
+      @movies = Movie.where("title LIKE ?", params[:title])
+      flash[:nope] = "Sorry, no movie found." if @movies.blank?
+    else
+      @movies = Movie.most_recent_first
+    end
   end 
 
   def new

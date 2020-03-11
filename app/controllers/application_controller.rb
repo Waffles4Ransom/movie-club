@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :current_user
 
+  #rescue_from ActiveRecord::RecordNotFound do |exception| 
+    #redirect_to root_path
+  #end 
 
   private 
 

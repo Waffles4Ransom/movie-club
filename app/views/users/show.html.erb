@@ -17,7 +17,7 @@
   </div>
 
 <h4>Movie Club Attendence Record: <%= @user.movies.count %></h4>
-<% @user.movies.each do |m| %>
+<% @user.movies.most_recent_first.each do |m| %>
   <div class="img-container">
     <%= link_to movie_path(m) do %>
       <%= image_tag m.poster_image, width: "12%" %>
