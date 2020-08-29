@@ -31,7 +31,7 @@
  }
 
  .content {
-  margin-left: 35px;
+  margin-left: 3.5em;
 }
 
  .right {
@@ -191,4 +191,12 @@ textarea {
   width: 40%;
   align-items: center;
   display: flex;
+}
+
+.details {
+  font-size: 1.2em;
+}
+
+.reviews {
+  margin-right: 3.5em;
 }
