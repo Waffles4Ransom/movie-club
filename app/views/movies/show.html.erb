@@ -1,15 +1,17 @@
 <p><%= link_to 'Edit Movie Info', edit_movie_path, class: 'right button button2' if current_user.admin? %></p>
-<h1><%= @movie.title %> (<%= @movie.release_year %>) </h1>
+<p class="title"><%= @movie.title %> (<%= @movie.release_year %>) </p>
   <div class="row">
     <div class="column">
       <%= image_tag @movie.poster_image, height: "450", width: "330" %>
     </div>
     <div class="column">
-        <p class="details"><strong>Directed by:</strong> <%= @movie.director %></p>
-        <p class="details"><strong>Genre:</strong> <%= @movie.genre %></p>
-        <p class="details"><strong>Movie Club viewing:</strong></p>
-        <p class="details"><%= @movie.date_attended.strftime("%A %B %e %Y") %></p>
-        <p class="details">at <%= @movie.theater %></p>
+      <div class="details">
+        <p><strong>Directed by:</strong> <%= @movie.director %></p>
+        <p><strong>Genre:</strong> <%= @movie.genre %></p>
+        <p><strong>Movie Club viewing:</strong></p>
+        <p><%= @movie.date_attended.strftime("%A %B %e %Y") %></p>
+        <p>at <%= @movie.theater %></p>
+      </div>
         <% if @movie.reviews.any? %>
           <p class="details"><strong>DAM Movie Club rating :</strong></p>
           <% @movie.movie_club_rating.times do |s| %>
@@ -20,7 +22,7 @@
   </div>
 
 <% if @movie.users.any? %>
-  <h4>Members who attended</h4>
+  <h3>Members who attended</h3>
     <% @movie.users.each do |m| %>
       <%= link_to user_path(m) do %>
         <%= image_tag m.profile.profile_photo, size: "100" %>

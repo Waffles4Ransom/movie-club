@@ -1,5 +1,6 @@
 <div class= "home">
-  <h1>Welcome to DAM Movie Club</h1>
+  <p class="title lrg">DAM Movie Club</p>
+  <p class="specialA">5</p>
   <h2>We like to movie.</h2>
 
   <h4>Upcoming Movie Date</h4>
@@ -10,7 +11,8 @@
       <p><%= image_tag @next_movie.poster_image, width: "25%" %></p>
   <% else %>
     <h4>Nothing on the schedule yet...</h4>
-    <p><%= image_tag 'https://i.imgur.com/bAvqlZC.jpg', :class => "homeimage"%></p>
+    <p><%= image_tag 'sad_leo.jpg', :class => "homeimage"%></p>
+
   <% end %>
 
   <%= link_to 'See the movies', movies_path, class: 'button button1' %> | 

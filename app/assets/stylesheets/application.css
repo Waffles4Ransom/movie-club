@@ -14,15 +14,46 @@
  *= require_self
  */
 
+ @font-face {
+   font-family: 'BurfordMarquee';
+   src: url('BurfordMarquee.ttf') format('truetype');
+ }
+
+@font-face {
+  font-family: 'Burford-ExtrasSetA';
+  src: url('Burford-ExtrasSetA.ttf') format('truetype');
+}
+
  body {
   font-family: 'Montserrat', sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
+ }
+
+ header {
+  background-color: rgb(48, 57, 99);
  }
 
  .home {
   text-align: center;
+ }
+
+ .title {
+   font-family: BurfordMarquee;
+   font-size: 4em;
+   margin: 0;
+ }
+
+ .title.lrg {
+  font-size: 7.5em;
+ }
+
+ .specialA {
+  font-family: Burford-ExtrasSetA;
+  font-size: 8em;
+  margin: -40px;
  }
 
  .homeimage {
