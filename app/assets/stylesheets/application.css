@@ -16,6 +16,9 @@
 
  body {
   font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
  }
 
  .home {
@@ -32,6 +35,7 @@
 
  .content {
   margin-left: 3.5em;
+  flex-grow: 1;
 }
 
  .right {
@@ -57,7 +61,6 @@ div.gallery:hover {
 
 div.gallery img {
   width: 100%;
-  height: auto;
 }
 
 div.desc {
@@ -85,7 +88,6 @@ div.desc {
 
 .column {
   float: left;
-  
   padding: 20px;
 }
 
@@ -199,4 +201,16 @@ textarea {
 
 .reviews {
   margin-right: 3.5em;
+}
+
+.userpix {
+  max-height: 12.5em;
+}
+
+footer {
+  font-size: .75em;
+  text-align: center;
+  opacity: 0.4;
+  margin-top: 4em;
+  flex-grow: 0;
 }

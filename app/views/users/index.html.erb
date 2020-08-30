@@ -4,7 +4,7 @@
   <% @users.each do |u| %>
     <div class="gallery">
       <%= link_to user_path(u) do %>
-        <%= image_tag u.profile.profile_photo %>
+        <%= image_tag u.profile.profile_photo, class: "userpix" %>
       <% end %>
         <div class="desc">
           <p><%= u.full_name %></p>

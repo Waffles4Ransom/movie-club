@@ -1,18 +1,18 @@
 <h1><%= @user.full_name %></h1>
   <div class="row">
     <div class="column">
-      <%= image_tag @user.profile.profile_photo, size: "250", class: 'profypic' %>
+      <%= image_tag @user.profile.profile_photo, size: "350", class: 'profypic' %>
     </div>
     <div class="column">
-        <p>Username: <%= @user.profile.username %></p>
-        <p>Member title: <%= @user.profile.member_title %></p>
-        <p>Favorite Movie: <%= @user.profile.fav_movie %></p>
+        <p class="details"><strong>Username:</strong> <%= @user.profile.username %></p>
+        <p class="details"><strong>Member title:</strong> <%= @user.profile.member_title %></p>
+        <p class="details"><strong>Favorite Movie:</strong> <%= @user.profile.fav_movie %></p>
         <% unless @user.movies.count == 0 %>
-          <p>Member Status: <%= @user.member_status %></p>
-          <p>Member Since: <%= @user.member_since %></p>
+          <p class="details"><strong>Member Status:</strong> <%= @user.member_status %></p>
+          <p class="details"><strong>Member Since:</strong> <%= @user.member_since %></p>
         <% end %>
-        <%= link_to 'Edit profile info', edit_user_profile_path(@user.id), class: 'button button1' if current_user == @user %> 
-        <%= link_to 'See all of my reviews', user_reviews_path(@user.id),class: 'button button1'  if @user.movies.count >= 1 %>
+        <%= link_to 'Edit profile info', edit_user_profile_path(@user.id), class: 'button button2' if current_user == @user %> 
+        <%= link_to 'See all of my reviews', user_reviews_path(@user.id),class: 'button button2'  if @user.movies.count >= 1 %>
     </div>
   </div>
 
