@@ -1,24 +1,16 @@
-# README
+# DAM Movie Club 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Home for members of the Denver Art Museum Movie Club to review and discuss the movies we see together. 
 
-Things you may want to cover:
+<img src='app/assets/images/prof_screenshot.png' alt="Movie Club Screenshot">
 
-* Ruby version
+## Features
+Users can: 
+- rate and review films they've attended
+- comment on fellow members reviews
+- stay informed about upcoming movie club outings
 
-* System dependencies
+## Built with
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ - Ruby on Rails
+ - Omniauth for Facebook account login option
