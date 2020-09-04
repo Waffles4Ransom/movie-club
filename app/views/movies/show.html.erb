@@ -13,7 +13,7 @@
         <p>at <%= @movie.theater %></p>
       </div>
 
-        <% if !too_soon_to_review %>
+        <% if future_movie_date %>
          <%= link_to 'Buy your ticket', @movie.ticketURL , class: 'button button1' %>
         <% end %> 
 
@@ -37,7 +37,7 @@
 <% end %>
 
 <br/><br/>
-<% if too_soon_to_review %>
+<% if !future_movie_date %>
   <% if !current_user.reviewed_it(@movie) %>
     <%= link_to 'Add your review', new_movie_review_path(@movie.id), class: 'button button1' %>
   <% end %>
