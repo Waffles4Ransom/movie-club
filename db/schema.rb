@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_070659) do
+ActiveRecord::Schema.define(version: 2020_09_04_204731) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_070659) do
     t.string "poster_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "ticketURL"
   end
 
   create_table "profiles", force: :cascade do |t|
