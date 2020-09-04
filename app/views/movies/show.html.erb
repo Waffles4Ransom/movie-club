@@ -12,12 +12,18 @@
         <p><%= @movie.date_attended.strftime("%A %B %e %Y") %></p>
         <p>at <%= @movie.theater %></p>
       </div>
+
+        <% if !too_soon_to_review %>
+         <%= link_to 'Buy your ticket', @movie.ticketURL , class: 'button button1' %>
+        <% end %> 
+
         <% if @movie.reviews.any? %>
           <p class="details"><strong>DAM Movie Club rating :</strong></p>
           <% @movie.movie_club_rating.times do |s| %>
             <i class="fas fa-star fa-lg"></i>
           <% end %>
         <% end %>
+
     </div >
   </div>
 

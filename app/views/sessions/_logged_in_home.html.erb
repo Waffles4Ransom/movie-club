@@ -5,9 +5,10 @@
 
   <h4>Upcoming Movie Date</h4>
   <% if @next_movie %>
-      <h3><%= @next_movie.title %></h3>
+      <h2><%= @next_movie.title %></h2>
       <p><%= @next_movie.date_attended.strftime("%A %B %e %Y") %></p>
       <p><%= @next_movie.theater %> at <%= @next_movie.showtime.strftime(" %l %M %p") %></p>
+      <%= link_to 'Buy your ticket', @next_movie.ticketURL , class: 'button button1' %>
       <p><%= image_tag @next_movie.poster_image, width: "25%" %></p>
   <% else %>
     <h4>Nothing on the schedule yet...</h4>
