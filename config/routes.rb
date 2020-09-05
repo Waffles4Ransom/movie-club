@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
+
+  get 'admin' => 'admin#home'
   
   resources :reviews, only: [:index] do 
     resources :comments, except: [:index]

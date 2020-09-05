@@ -1,0 +1,12 @@
+<p>Hello Admin <%= @admin.full_name %>!</p>
+
+<%= link_to 'Add a New Movie', new_movie_path, class: 'button button1' %>
+
+<div class="flex-container">
+  <% @movies.each do |m| %>
+    <div class="gallery admin">
+      <%= image_tag m.poster_image %>
+      <%= link_to 'Edit', edit_movie_path(m), class: 'button button2 center'%>
+    </div>
+  <% end %>
+</div>
