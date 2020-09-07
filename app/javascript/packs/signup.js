@@ -9,23 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function validate(e) {
     let answer = e.target.value.toLowerCase()
-    let inputOne = document.querySelector("input#q1")
-    let inputTwo = document.querySelector("input#q2")
-
+    
     if (e.target.id === 'q1') {
       if (answer.includes("frisby")) {
-        inputOne.style.backgroundColor = "#61bf5c"
+        q1.style.backgroundColor = "#61bf5c"
         return passed()
       } else {
-        inputOne.style.backgroundColor = "#e05441"
+        q1.style.backgroundColor = "#e05441"
         return failed()
       }
     } else if (e.target.id === 'q2') {
       if (answer.includes("dante")) {
-        inputTwo.style.backgroundColor = "#61bf5c"
+        q2.style.backgroundColor = "#61bf5c"
         return passed()
       } else {
-        inputTwo.style.backgroundColor = "#e05441"
+        q2.style.backgroundColor = "#e05441"
         return failed()
       }
     }
