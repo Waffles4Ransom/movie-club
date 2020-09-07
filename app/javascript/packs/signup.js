@@ -4,35 +4,30 @@ document.addEventListener('DOMContentLoaded', () => {
   let quiz = document.querySelector('.quiz')
   let signupForm = document.querySelector('.join')
 
-  q1.addEventListener('change', validateOne)
-  q2.addEventListener('change', validateTwo)
+  q1.addEventListener('change', validate)
+  q2.addEventListener('change', validate)
 
-  function validateOne(e) {
+  function validate(e) {
     let answer = e.target.value.toLowerCase()
-    let input = document.querySelector("input#q1")
-    console.log(answer)
-    if (answer.includes("frisby")) {
-      console.log('PASS')
-      input.style.backgroundColor = "#61bf5c"
-      return passed()
-    } else {
-      console.log('FAIL')
-      input.style.backgroundColor = "#e05441"
-    }
-  }
+    let inputOne = document.querySelector("input#q1")
+    let inputTwo = document.querySelector("input#q2")
 
-  function validateTwo(e) {
-    let answer = e.target.value.toLowerCase()
-    let input = document.querySelector("input#q2")
-    console.log(answer)
-    if (answer.includes("dante")) {
-      console.log('PASS')
-      input.style.backgroundColor = "#61bf5c"
-      return passed()
-    } else {
-      console.log('FAIL')
-      input.style.backgroundColor = "#e05441"
-      return failed()
+    if (e.target.id === 'q1') {
+      if (answer.includes("frisby")) {
+        inputOne.style.backgroundColor = "#61bf5c"
+        return passed()
+      } else {
+        inputOne.style.backgroundColor = "#e05441"
+        return failed()
+      }
+    } else if (e.target.id === 'q2') {
+      if (answer.includes("dante")) {
+        inputTwo.style.backgroundColor = "#61bf5c"
+        return passed()
+      } else {
+        inputTwo.style.backgroundColor = "#e05441"
+        return failed()
+      }
     }
   }
 
