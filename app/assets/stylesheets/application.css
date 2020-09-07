@@ -222,11 +222,16 @@ textarea {
 
 .cat {
   float: right;
-  margin-right: 35%;
+  margin-left: 6em;
+  margin-right: 14em;
 }
 
 .popcat {
   border-radius: 125px;
+}
+
+.party {
+  width: 20em;
 }
 
 .searchbar {

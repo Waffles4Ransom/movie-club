@@ -1,22 +1,41 @@
-<p class="title">Join Movie Club</p>
-<%= render partial: 'layouts/errors', locals: {object: @user } %>
+<%= javascript_pack_tag 'signup' %>
 
-<%= form_with model: @user, url: 'signup', local: true do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+<div class="quiz">
+  <p>Prove yourself worthy to join the DAM Movie Club:</p>
+  <%= form_tag '#', autocomplete: 'off' do %>
+    <%= label_tag :q1, "What is the formal name of the phone center?" %>
+    <%= text_field_tag :q1 %>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <%= label_tag :q2, 'Who "will have a lasting effect on you" from the Ancient Egypt poster?' %> 
+    <%= text_field_tag :q2 %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+    <p class="button button1">Check my answers</p>
+  <% end %>
+</div>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+<div class="join" hidden>
+    <p> Congrats, you've proven you are one of us...</p>
+    <%= image_tag 'diehard.gif', class: 'party' %>
+    <p class="title">Join Movie Club</p>
+    <%= render partial: 'layouts/errors', locals: {object: @user } %>
 
-    <%= f.submit 'Join'%>
-<% end %>
+    <%= form_with model: @user, url: 'signup', local: true do |f| %>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
 
-<p>or</p>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
 
-<%= link_to 'Join with Facebook', '/auth/facebook', class: 'button button1' %>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+
+        <%= f.submit 'Join'%>
+    <% end %>
+
+    <p>or</p>
+
+    <%= link_to 'Join with Facebook', '/auth/facebook', class: 'button button1' %>
+</div>
