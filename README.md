@@ -4,6 +4,8 @@ Home for members of the Denver Art Museum Movie Club to review and discuss the m
 
 <img src='app/assets/images/prof_screenshot.png' alt="Movie Club Screenshot">
 
+<a href="https://youtu.be/7x5wB5FpZm0" style="font-size: 1.8em"><strong>Demo Video</strong></a>
+
 ## Features
 Users can: 
 - rate and review films they've attended
