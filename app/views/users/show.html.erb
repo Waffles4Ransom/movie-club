@@ -14,7 +14,7 @@
           <p class="details"><strong>Member Since:</strong> <%= @user.member_since %></p>
         <% end %>
         <%= link_to 'Edit profile info', edit_user_profile_path(@user.id), class: 'button button2' if current_user == @user %> 
-        <%= link_to 'See all of my reviews', user_reviews_path(@user.id), class: 'button button2'  if @user.movies.count >= 1 %>
+        <%= link_to 'See all movies reviews', user_reviews_path(@user.id), class: 'button button2'  if @user.movies.count >= 1 %>
         <%= link_to 'Admin Options', admin_path, class: 'button button2' if current_user.admin? && @user === current_user %>
     </div>
   </div>
