@@ -26,6 +26,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
