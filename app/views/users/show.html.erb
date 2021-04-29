@@ -1,7 +1,7 @@
-<p class="title"><%= @user.full_name %></p>
+<h1 class="title"><%= @user.full_name %></h1>
   <div class="row">
     <div class="column">
-      <%= image_tag @user.profile.profile_photo, size: "300", class: 'profypic' %>
+      <%= image_tag @user.profile.profile_photo, class: 'profypic' %>
     </div>
     <div class="column">
       <div class="details">
@@ -20,13 +20,15 @@
   </div>
 
 <h4>Movie Club Attendence Record: <%= @user.movies.count %></h4>
+<div class="flex-containter">
 <% @user.movies.most_recent_first.each do |m| %>
-  <div class="img-container">
+  
     <%= link_to movie_path(m) do %>
-      <%= image_tag m.poster_image, width: "12%" %>
+      <%= image_tag m.poster_image, class: "poster" %>
     <% end %>
-  </div>
+  
 <% end %>
+</div>
 
 <% if current_user == @user %>
   <% if @user.movies.count == 0 %>

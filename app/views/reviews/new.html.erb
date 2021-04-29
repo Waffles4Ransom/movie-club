@@ -1,10 +1,11 @@
-<h3>Leave your review for <%= @movie.title %></h3>
+<h1>Leave your review for <%= @movie.title %></h1>
 <%= render partial: 'layouts/errors', locals: {object: @review } %>
 
 <%= form_with(model: [@movie, Review.new], local: true) do |f| %>
   
   <%= f.label :rating, 'Star Rating:' %>
-  <%= f.collection_radio_buttons(:rating, { 'One Star': 1, 'Two Stars': 2, 'Three Stars': 3, 'Four Stars': 4, 'Five Stars': 5 }, :last, :first) %><br><br>
+  <%= f.collection_radio_buttons(:rating, { 'One Star': 1, 'Two Stars': 2, 'Three Stars': 3, 'Four Stars': 4, 'Five Stars': 5 }, :last, :first) %>
+  <br><br>
   
   <%= f.label :content, 'Thoughts? Feelings? Leave it here:' %>
   <%= f.text_area :content %>

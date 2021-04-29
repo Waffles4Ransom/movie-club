@@ -24,66 +24,71 @@
   src: url('Burford-ExtrasSetA.ttf') format('truetype');
 }
 
- body {
+* {
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Montserrat', sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   margin: 0;
- }
+}
 
- header {
+header {
   background-color: rgb(48, 57, 99);
- }
+}
 
- .home {
+.home {
   text-align: center;
- }
+}
 
- .title {
-   font-family: BurfordMarquee;
-   font-size: 4em;
-   margin: 0;
- }
-
- .title.lrg {
+.title {
+  font-family: BurfordMarquee;
+  font-size: 4em;
+  margin: 0;
+}
+.title.lrg {
   font-size: 7.5em;
- }
+}
 
- .specialA {
+.specialA {
   font-family: Burford-ExtrasSetA;
   font-size: 8em;
   margin: -40px;
- }
+}
 
- .homeimage {
+.homeimage {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 40em;
   margin-bottom: 20px;
- }
+}
 
- .content {
+.content {
   margin-left: 3.5em;
   flex-grow: 1;
 }
 
- .right {
+.right {
    float: right;
- }
-
- .flex-container {
-  display: flex;
-  flex-wrap: wrap;
 }
 
- div.gallery {
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+div.gallery {
   margin: 5px;
   border: 3px solid #ccc;
-  float: left;
-  width: 205px;
-  flex-wrap: wrap;
+  width: 12em;
+}
+
+div.gallery.users {
+  width: 14rem;
 }
 
 div.gallery:hover {
@@ -99,7 +104,7 @@ div.gallery.admin {
 }
 
 div.desc {
-  padding: 15px;
+  padding: .50rem;
   text-align: center;
 }
 
@@ -111,14 +116,11 @@ div.desc {
 
 .profypic {
   border-radius: 15px;
+  width: 20rem;
 }
 
-.img-container {
-  display: inline;
-}
-
-* {
-  box-sizing: border-box;
+.poster {
+  width: 10rem;
 }
 
 .column {
@@ -133,7 +135,7 @@ div.desc {
 }
 
 input[type=text], select {
-  width: 40%;
+  width: 20rem;
   padding: 12px 20px;
   margin: 8px 0;
   display: block;
@@ -145,7 +147,7 @@ input[type=text], select {
 }
 
 input[type=password], [type=email], select {
-  width: 40%;
+  width: 20rem;
   padding: 12px 20px;
   margin: 8px 0;
   display: block;
@@ -157,7 +159,7 @@ input[type=password], [type=email], select {
 }
 
 input[type=submit] {
-  width: 40%;
+  width: 20rem;
   background-color: rgb(48, 57, 99);
   color: white;
   padding: 14px 20px;
@@ -170,8 +172,9 @@ input[type=submit] {
 }
  
 textarea {
-  width: 40%;
-  height: 100px;
+  width: 35rem;
+  height: 12rem;
+  margin: .5rem 0 .5rem 0;
   padding: 12px 20px;
   display: block;
   box-sizing: border-box;
@@ -200,7 +203,7 @@ textarea {
 
 .button1 {
   padding: 14px;
-  font-size: 16px;
+  font-size: 1.2rem;
 }
 
 .button2 {
@@ -235,22 +238,23 @@ textarea {
 }
 
 .searchbar {
-  width: 40%;
+  width: 45rem;
   align-items: center;
   display: flex;
 }
 
 .details {
   font-size: 1.2em;
+  /* font-weight: bold; */
 }
 
 .reviews {
   margin-right: 3.5em;
 }
 
-.userpix {
+/* .userpix {
   max-height: 12.5em;
-}
+} */
 
 footer {
   font-size: .75em;
@@ -258,4 +262,21 @@ footer {
   opacity: 0.4;
   margin-top: 4em;
   flex-grow: 0;
+}
+
+@media only screen and (max-width: 700px) {
+  .cat { float: none; margin: 0;}
+  .content {margin: 1rem;}
+  div.gallery {width: 25em;}
+  div.gallery.users {width: 10rem;}
+  div.desc { font-size: .75em;}
+  .homeimage {width: 20rem;}
+  .poster {width: 10rem;}
+  .searchbar {
+    display: block;
+  }
+  .star-rating {display: block;}
+  .title.lrg {font-size: 3rem;}
+  .title {font-size: 3.5rem;}
+  textarea { width: 21rem;}
 }

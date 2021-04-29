@@ -1,8 +1,8 @@
-<p class="title">The Members</p>
+<h1 class="title">The Members</h1>
 
 <div class="flex-container">
   <% @users.each do |u| %>
-    <div class="gallery">
+    <div class="gallery users">
       <%= link_to user_path(u) do %>
         <%= image_tag u.profile.profile_photo, class: "userpix" %>
       <% end %>

@@ -8,5 +8,5 @@
   <%= f.submit %>
 <% end %>
 
-<p><%= link_to 'Delete comment', review_comment_path(@review.id, @comment), method: "delete", class: 'button button2' %></p>
+<div><%= link_to 'Delete comment', review_comment_path(@review.id, @comment), method: "delete", class: 'button button2' %></div>
 <%= link_to 'Back', movie_path(@movie), class: 'button button2' %>

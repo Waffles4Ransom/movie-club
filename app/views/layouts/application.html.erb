@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Mono&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,11 +17,12 @@
     <header>
       <%= navbar %>
     </header>
-      <div class="content">
-        <div class='alert'><%= flash[:nope] if flash[:nope] %></div>
-
+    <div class="content">
+      <div class='alert'><%= flash[:nope] if flash[:nope] %></div>
       <%= yield %>
-      </div>
-    <footer><p>Coding4Waffles @2020</p></footer>
+    </div>
+    <footer>
+      <p>Coding4Waffles @2020</p>
+    </footer>
   </body>
 </html>
